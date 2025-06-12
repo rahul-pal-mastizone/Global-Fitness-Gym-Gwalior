@@ -402,15 +402,35 @@
           </div>
         </div>
 
-
         <div class="contact-form">
-          <!-- <form action="https://formsubmit.co/rahulsinghpal155@gmail.com" method="POST"> -->
-          <form name="contact-form-netlify" method="post" netlify>
-            <input type="text" placeholder="Your Name" name="name" required aria-label="Enter Your Name">
-            <input type="email" placeholder="Your Email" name="email" required aria-label="Enter Your Email">
-            <textarea placeholder="Your Message" name="message" required aria-label="Enter Your Message"></textarea>
-            <button type="submit" class="primary-button">Send Message</button>
-          </form>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
+
+    <!-- Hidden honeypot field to prevent bots -->
+    <p hidden>
+      <label>Don’t fill this out: <input name="bot-field" /></label>
+    </p>
+
+    <div class="form-group">
+      <div class="controls">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required aria-label="Enter Your Name" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="controls">
+        <input type="email" name="email" id="email" class="form-control" placeholder="Your Email" required aria-label="Enter Your Email" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="controls">
+        <textarea name="message" id="message" rows="4" class="form-control" placeholder="Your Message" required aria-label="Enter Your Message"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" id="submit" class="primary-button">Send Message</button>
+    </form>
         </div>
 
       </div>
