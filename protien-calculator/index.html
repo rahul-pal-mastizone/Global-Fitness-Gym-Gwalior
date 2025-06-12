@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Protein Intake Calculator - Find Your Ideal Protein Needs</title>
+    <meta name="keywords" content="protein calculator, daily protein intake, protein needs, nutrition calculator, fitness, healthy eating">
+    <meta name="description" content="Discover how much protein you need every day with our interactive protein calculator. Input your age, weight, activity level, and body type to calculate your daily protein requirements.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="images/png" href="images/favicon_img.png">
+    <meta property="og:title" content="Daily Protein Intake Calculator">
+    <meta property="og:description" content="Calculate your daily protein needs with this easy-to-use protein calculator. Ideal for fitness enthusiasts, dieters, and anyone aiming for a healthier lifestyle.">
+    <meta property="og:image" content="/images/protein_icon.png">
+    <meta property="og:url" content="https://global-fitness-gym.netlify.app/protein-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daily Protein Intake Calculator">
+    <meta name="twitter:description" content="Find out how much protein you should consume daily based on your age, weight, body type, and activity level.">
+    <meta name="twitter:image" content="/images/protein_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://global-fitness-gym.netlify.app/protein-calculator">
+    
+    <style>
+    /* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Calculator Container */
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Intro Text */
+.intro-text {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Option Group Styling */
+.option-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Option Card Styling */
+.option-card {
+    position: relative;
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Option Card Hover and Selected States */
+.option-card:hover,
+.option-card input:checked + .card-content {
+    border-color: #3498db;
+    background: #f8f9ff;
+}
+
+.option-card input:checked ~ .card-content {
+    border-color: #3498db;
+    background: #f8f9ff;
+}
+
+.option-card.selected {
+    border-color: #3498db !important;
+    background: #f8f9ff !important;
+    transform: scale(1.05);
+}
+
+/* Card Content */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.option-icon {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+/* Button Styling */
+button {
+    background: #3498db;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 2rem auto 0;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.protein-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Modal Styling */
+.result-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure modal is on top */
+}
+
+.result-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.result-modal h3 {
+    font-size: 1.8rem;
+    color: #3498db;
+}
+
+.protein-result {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-container {
+        padding: 1rem;
+    }
+}
+</style>
+
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="protein-icon">
+            <img src="/images/protein_icon.png" alt="Protein Intake Calculator" width="20%">
+        </div>
+        <h1>How Much Protein Do You Need Daily?</h1>
+        <p class="intro-text"><b>Answer these questions & we'll do the math!<br>
+        Let's find out your perfect protein intake!</b></p>
+
+        <form>
+            <div class="input-row">
+                <input inputmode="numeric" type="text" placeholder="Age (years)" required>
+                <input type="number" placeholder="Weight (kg)" required>
+            </div>
+
+            <div class="input-row">
+                <input type="number" placeholder="Height (cm)" required>
+                <select required>
+                    <option value="">Activity Level</option>
+                    <option>Sedentary</option>
+                    <option>Moderate</option>
+                    <option>Active</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <h3>Gender</h3>
+                <div class="option-group">
+                    <label class="option-card">
+                        <input type="radio" name="gender" value="male" required>
+                        <div class="card-content">
+                            <i class="fa-solid fa-person option-icon"></i>
+                            Male
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="gender" value="female">
+                        <div class="card-content">
+                            <i class="fa-solid fa-person-dress option-icon"></i>
+                            Female
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="gender" value="other">
+                        <div class="card-content">
+                            <i class="fa-solid fa-genderless option-icon"></i>
+                            Other
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3>Body Type</h3>
+                <div class="option-group">
+                    <label class="option-card">
+                        <input type="radio" name="body-type" value="skinny" required>
+                        <div class="card-content">
+                            <i class="fa-solid fa-person option-icon"></i>
+                            Skinny
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="body-type" value="skinny-fat">
+                        <div class="card-content">
+                            <i class="fa-solid fa-person-circle-question option-icon"></i>
+                            Skinny Fat
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="body-type" value="athletic">
+                        <div class="card-content">
+                            <i class="fa-solid fa-dumbbell option-icon"></i>
+                            Athletic
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="body-type" value="overweight">
+                        <div class="card-content">
+                            <i class="fa-solid fa-weight-scale option-icon"></i>
+                            Overweight
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h3>Diet Type</h3>
+                <div class="option-group">
+                    <label class="option-card">
+                        <input type="radio" name="diet" value="vegetarian" required>
+                        <div class="card-content">
+                            <i class="fa-solid fa-leaf option-icon"></i>
+                            Vegetarian
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="diet" value="eggetarian">
+                        <div class="card-content">
+                            <i class="fa-solid fa-egg option-icon"></i>
+                            Eggetarian
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="diet" value="non-vegetarian">
+                        <div class="card-content">
+                            <i class="fa-solid fa-drumstick-bite option-icon"></i>
+                            Non-Vegetarian
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit">Calculate My Protein</button>
+        </form>
+    </div>
+
+    <script src="/protien-calculator/script.js"></script>
+</body>
+</html>
