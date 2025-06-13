@@ -404,10 +404,10 @@
 
         <div class="contact-form">
   <form name="Customer-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="Customer-form" value="Customer-form" />
-
+    
     <!-- Hidden honeypot field to prevent bots -->
-    <p hidden>
+    <input type="hidden" name="form-name" value="Customer-form" />
+    <p style="display:none;">
       <label>Don’t fill this out: <input name="bot-field" /></label>
     </p>
 
