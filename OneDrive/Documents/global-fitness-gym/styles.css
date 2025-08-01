@@ -1,0 +1,697 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --text-color: #333;
+  --background-color: #f4f7f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+
+/* a{
+  color: inherit;
+  text-decoration: none;
+} */
+
+
+.gym-app {
+  text-align: center;
+}
+
+.gym-header {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 5%;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--secondary-color);
+}
+
+.cta-nav {
+  background-color: var(--secondary-color);
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  background: url('https://maxm-imggenurl.web.val.run/modern-fitness-gym-interior') no-repeat center center;
+  background-size: cover;
+  padding-top: 80px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 10;
+  padding: 0 5%;
+}
+
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primary-button, .secondary-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.primary-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.secondary-button a{
+  text-decoration: none;
+  color: white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.services, .classes, .testimonials, .contact{
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 5%;
+}
+
+.services-grid, .classes-grid, .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.service-card, .class-card, .testimonial-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover{
+  transform: translateY(-10px);
+}
+
+
+.pricing-card.recommended {
+  border: 2px solid var(--secondary-color);
+  transform: scale(1.05);
+}
+
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* .plan-button{
+  padding: 3px;
+  margin-top: 5px;
+} */
+
+
+/* without user friendly Styles 
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+} */
+
+ /* Gallery Section */
+ .gallery {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 99%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  position: relative;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Pricing Section */
+.pricing {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pricing-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 280px;
+  text-align: center;
+}
+
+.pricing-card.recommended {
+  border: 2px solid #ff9800;
+  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.3);
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  unicode-bidi: isolate;
+}
+
+.plan-button {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.plan-button:hover {
+  background: #e68900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 3rem 5%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+
+.footer-logo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.footer-links, .footer-contact, .footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+}
+
+.footer-contact p, .footer-contact a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  line-height: 1.5;
+}
+
+.footer-contact a:hover {
+  color: var(--secondary-color);
+}
+
+.footer-social .social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  color: var(--secondary-color);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-logo h3 {
+    font-size: 1.5rem;
+  }
+
+  /* .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+  .footer-social .social-links {
+    justify-content: center;
+  }
+
+  /* display the list items horizontally */
+  .footer-links ul {
+      display: flex; /* Use flexbox for horizontal layout */
+      justify-content: space-around; /* Distribute items evenly */
+      flex-wrap: wrap;  /* Allow wrapping if necessary */
+      padding: 0;
+  }
+
+  .footer-links ul li {
+      margin: 0 10px;  /* Horizontal spacing */
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 1rem 3%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .header-container {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding-top: 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    padding-top: 60px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .primary-button, .secondary-button {
+    width: 100%;
+  }
+
+  .services-grid, 
+  .classes-grid,
+  .testimonials-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .contact-details a {
+    /* Styles for links in contact details */
+    /* text-decoration: none; */
+    
+    /* 
+    color: inherit; /* Inherit the color from the parent element */
+    /* text-decoration: none; /* Make sure to keep this to remove the underline */
+    
+
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  } */
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.2rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+    padding-top: 30px;
+    margin-top: 20px;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-header p {
+    font-size: 0.9rem;
+  }
+}
+
+}
+
+/* Footer & Social Icons
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  color: var(--secondary-color);
+} */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .primary-button, .secondary-button {
+    width: 100%;
+  }
+}
+
+
+/* Mobile-map Only 
+
+/* Hide by default */
+
+/* .mobile-map-only {
+  display: none;
+} */
+
+/* Show only on screens less than 768px wide (mobile) */
+
+/* @media screen and (max-width: 768px) {
+  .mobile-map-only {
+    display: block;
+    margin-top: 20px;
+  }
+} */
